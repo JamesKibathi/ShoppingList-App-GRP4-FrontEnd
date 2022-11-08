@@ -1,0 +1,89 @@
+body {
+    background-color: rgba(75, 119, 190); 
+}
+
+.divContainer{
+    background-color: #ffffff;
+    height: 70vh;
+    width: 90vw;
+    position: relative;
+    left: 60px;
+}
+
+
+.styled-table {
+    border-collapse: collapse;
+    margin: 25px 0;
+    font-size: 0.9em;
+    font-family: sans-serif;
+    width: 50vw;
+    box-shadow: 0 0 20px  rgba(0, 0, 0, 0.15);
+    border-radius: 20px;
+}
+
+.styled-table thread tr {
+    background-color: #009879;
+    color: #ffffff;
+    text-align: left;
+}
+/* .styled-table th {
+    background-color: #96a256;
+} */
+
+
+.styled-table th,
+.styled-table td {
+    padding: 12px 15px;
+}
+
+.styled-table tbody tr {
+    border-bottom: 1px solid #dddddd;
+}
+
+.styled-table tbody tr:nth-of-type(even) {
+    background-color:  #f3f3f3;
+}
+
+.styled-table tbody tr:last-of-type{
+    border-bottom: 2px solid  #96a256;
+}
+
+.styled-table tbody tr.active-row {
+    font-weight: bold;
+    /* color:  #96a256; */
+    color: gray;
+}
+
+
+.button-42 {
+  background-color: initial;
+  background-image: linear-gradient(-180deg, #bb8a78, #b15419);
+  border-radius: 6px;
+  box-shadow: rgba(0, 0, 0, 0.1) 0 2px 4px;
+  color: #FFFFFF;
+  cursor: pointer;
+  display: inline-block;
+  font-family: Inter,-apple-system,system-ui,Roboto,"Helvetica Neue",Arial,sans-serif;
+  height: 40px;
+  line-height: 40px;
+  outline: 0;
+  overflow: hidden;
+  padding: 0 20px;
+  pointer-events: auto;
+  position: relative;
+  text-align: center;
+  touch-action: manipulation;
+  user-select: none;
+  -webkit-user-select: none;
+  vertical-align: top;
+  white-space: nowrap;
+  width: 100px;
+  z-index: 9;
+  border: 0;
+  transition: box-shadow .2s;
+  position: relative; right: 50px;
+}
+
+.button-42:hover {
+  box-shadow: rgba(253, 76, 0, 0.5) 0 3px 8px;
+}
