@@ -12,6 +12,7 @@ function Forms() {
        <div className="dropdown">
   <button className="dropbtn" onClick={handleclick()}>Types of Lists</button>
   <div class="dropdown-content">
+    {/* This is a form */}
     <button >Weekday Shopping List</button>
     <button >Weekend Shopping List</button>
   </div>
