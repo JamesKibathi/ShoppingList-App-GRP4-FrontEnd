@@ -1,17 +1,18 @@
-import React from 'react'
-import "./tableAndForms.css"
+// import React from 'react'
+// import "./tableAndForms.css"
 
-function TableRows({}) {
-  return (
-    <tr class="active-row">
-                    <td>Bread</td>
-                    <td>10</td>
-                    <td>55</td>
-                    <td><input type= "checkbox"></input></td>
+// function TableRows({}) {
+//   return (
+//     <tr class="active-row">
+//                     <td>Bread</td>
+//                     <td>10</td>
+//                     <td>5</td>
+//                     <td>55</td>
+//                     <td><input type= "checkbox"></input></td>
     
                     
-                </tr>
-  )
-}
+//                 </tr>
+//   )
+// }
 
-export default TableRows
+// export default TableRows

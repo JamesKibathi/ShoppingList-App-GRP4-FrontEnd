@@ -6,7 +6,8 @@ import Table from './Table';
 function App() {
   return (
     <div className="App">
-      <Table />
+      <h1>Shopping List</h1>
+      {/* <Table /> */}
     </div>
   );
 }
