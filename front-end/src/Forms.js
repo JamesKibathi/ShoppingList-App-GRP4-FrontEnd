@@ -8,7 +8,7 @@ function Forms() {
   return (
     
      
-    <form className='form'>
+    <form id='form'>
        <div className="dropdown">
   <button className="dropbtn" onClick={handleclick()}>Types of Lists</button>
   <div class="dropdown-content">

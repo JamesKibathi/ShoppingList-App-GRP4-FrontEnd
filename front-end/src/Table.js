@@ -30,7 +30,7 @@ function Table() {
             </tbody>
             <button class="button-42">DELETE</button>
         </table>
-        <button class="button-26" role="button">Delete All</button>
+        <button class="button-26" >Delete All</button>
       
         </div>
   )
