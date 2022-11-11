@@ -3,13 +3,30 @@ import './TableRows'
 import "./tableAndForms.css"
 import TableRows from './TableRows'
 import Forms from './Forms'
+import { useEffect, useState } from 'react';
 
-function Table() {
+function Table({item}) {
+
+    const [items, setItems] = useState()
+    useEffect (() => {
+      fetch("http://localhost:8000/items")
+      .then(res => res.json())
+      .then(res => setItems(res))
+    }, []) 
+    function handleClick (id) {
+      setItems(value => value.filter(val => id !== val.id))
+      fetch(`http://localhost:8000/items/${id}`,{
+      method: "DELETE"
+    })
+    }
   return (
+
+  
+    
     <div className='divContainer'>
-        <Forms />
+        <Forms firstState={items} setItems={setItems}/>
         
-    <table class="styled-table">
+    <table class="styled-table" >
             <thead>
                 <tr>
                     <th>Item Name</th>
@@ -20,17 +37,12 @@ function Table() {
                 </tr>
             </thead>
             <tbody>
-            <tr class="active-row">
-                    <td>Bread</td>
-                    <td>10</td>
-                    <td>5</td>
-                    <td>55</td>
-                    <td><input type= "checkbox"></input></td>
-            </tr>
+            {items && items.map( item =>  <TableRows  key ={item.id} item={item} handleClick={handleClick}/>)}
+            
             </tbody>
-            <button class="button-42">DELETE</button>
+            {/* <button class="button-42">DELETE</button> */}
         </table>
-        <button class="button-26" >Delete All</button>
+        {/* <button class="button-26" >Delete All</button> */}
       
         </div>
   )
