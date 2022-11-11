@@ -25,7 +25,7 @@ function Table({item}) {
     
     <div className='divContainer'>
         <Forms firstState={items} setItems={setItems}/>
-        
+      
     <table class="styled-table" >
             <thead>
                 <tr>
@@ -40,11 +40,11 @@ function Table({item}) {
             {items && items.map( item =>  <TableRows  key ={item.id} item={item} handleClick={handleClick}/>)}
             
             </tbody>
-            {/* <button class="button-42">DELETE</button> */}
+            
         </table>
-        {/* <button class="button-26" >Delete All</button> */}
-      
         </div>
+      
+       
   )
 }
 
