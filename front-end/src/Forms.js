@@ -3,40 +3,45 @@ import './tableAndForms.css'
 import Table from './Table'
 import { useState } from "react"
 function Forms(firstState, setItems) {
+  // const [add, setAdd] = useState({
+  //   name: "",
+  //   description: "",
+  //   quantity: "",
+  //   price: ""
+
+  // })
   const [add, setAdd] = useState("")
   const [des, setDes] = useState("")
   const [quantity, setQuantity] = useState("")
   const [price, setPrice] = useState("")
     
-  function handleclick() {
-
-  }
+  
   
 
-  function handleClick(e) {
+  function handleSubmit(e) {
     e.preventDefault()
-    let info = {add, des, quantity, price}
+    
+    e.target.reset()
     
     fetch("http://localhost:8000/items", {
       method: "POST",
-      headers: {"Content-Type": "application/json"} ,
-      body: JSON.stringify(info)
+      headers: {"Content-Type": "application/json"},
+      body: JSON.stringify({
+        add: add,
+        des: des,
+        quantity: quantity,
+        price: price
+
+      })
     })
-      .then(res => res.json())
-      .then( data => {
-        const newData = [...firstState, data]
-        setItems (updated => data)
-        setAdd("")
-        setDes("")
-        setQuantity("")
-        setPrice("")
-  })
+      .then((res) => res.json())
+      .then((res) => setItems(res))
       
       
   }
 
   return (
-    <form id='form' onSubmit={handleClick}>
+    <form id='form' onSubmit={handleSubmit}>
       <div className="dropdown">
         <button className="dropbtn" >Types of Lists</button>
 
@@ -53,15 +58,15 @@ function Forms(firstState, setItems) {
       </div>
       <div className="label">
 
-        <input type="text" className="input-data" placeholder='Description' onChange={(e) =>setDes(e.target.value)}  value={des} />
+        <input type="text" className="input-data" placeholder='Quantity' onChange={(e) =>setDes(e.target.value)}  value={des} />
       </div>
       <div className="label">
 
-        <input type="text" className="inputs-data" placeholder='Quantity' onChange={(e) =>setQuantity(e.target.value)}  value={quantity} />
+        <input type="text" className="inputs-data" placeholder='Price' onChange={(e) =>setQuantity(e.target.value)}  value={quantity} />
       </div>
       <div className="label">
 
-        <input type="text" className="inputs-data" placeholder='Price'onChange={(e) => setPrice(e.target.value)}  value={price} />
+        <input type="text" className="inputs-data" placeholder='Description'onChange={(e) => setPrice(e.target.value)}  value={price} />
       </div>
       <button class="button-18" type='submit'>Add To List  </button>
 
