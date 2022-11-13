@@ -15,7 +15,7 @@ function Table({item}) {
     }, []) 
     function handleClick (id) {
       setItems(value => value.filter(val => id !== val.id))
-      fetch(`http://localhost:9292/items/${id}`,{
+      fetch(`http://localhost:8000/items/${id}`,{
       method: "DELETE"
     })
     }
@@ -43,9 +43,10 @@ function Table({item}) {
     <div className='divContainer'>
         <Forms firstState={items} setItems={setItems}/>
       
-    <table class="styled-table" >
+    {/* <table class="styled-table" > */}
+    <table className="styledTable" >
             <thead>
-            <h1>Weekend List</h1>
+            <h1 id="headtitle">My Cool Shopping List</h1>
                 <tr>
                   
                     <th>Item Name</th>

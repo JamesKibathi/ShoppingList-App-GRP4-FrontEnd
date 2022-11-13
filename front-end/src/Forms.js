@@ -47,11 +47,10 @@ function Forms({firstState, setItems}) {
   }
 
   return (
-    <form id='form' onSubmit={handleSubmit}>
-      
+    <form id='form' onSubmit={handleSubmit} className="addToListForm">
+      <h1> + Create Your Shopping List Here</h1>
       <div className="label">
-
-        <input type="text" className="in-data" placeholder='Item Name' onChange={(e) =>{setItemName(name=>e.target.value)}} value={name} name="name" />
+        <input type="text" className="input-data" placeholder='Item Name' onChange={(e) =>{setItemName(name=>e.target.value)}} value={name} name="name" />
       </div>
       <div className="label">
 
