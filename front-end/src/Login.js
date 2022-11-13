@@ -22,8 +22,6 @@ function Login() {
       console.log(x)
      
 
-
-
     const [username, setUserName] = useState(null)
     const [password, setPassword] = useState(null)
     const [authenticate, setAuthenticate] = useState(localStorage.getItem(
@@ -32,10 +30,10 @@ function Login() {
     const users = [{ user: "Group4", password: "moringa" }]
 
     function handleSubmit(e) {
-        // if(username == null || password == null) {
-        //     alert ("Fields Are Required")
-        //     return
-        // }
+        if(username == null || password == null) {
+            alert ("Fields Are Required")
+            return
+        }
         e.preventDefault()
         const people =  shoppers.map((item) => item.first_name)
         console.log(people)
