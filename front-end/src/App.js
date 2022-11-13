@@ -12,7 +12,7 @@ function App() {
 
   return (
     <div className="App">
-      <h1>Shopping List</h1>
+      <h1>Shopping Mara Moja Shopping List</h1>
       <Table />
       
     </div>

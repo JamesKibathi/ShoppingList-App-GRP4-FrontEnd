@@ -9,7 +9,7 @@ function Table({item}) {
   const [items, setItems] = useState()
   const [deleteFn, setDelete] = useState(false)
     useEffect (() => {
-      fetch("http://localhost:9292/items")
+      fetch("http://localhost:8000/items")
       .then(res => res.json())
       .then(res => setItems(res))
     }, []) 

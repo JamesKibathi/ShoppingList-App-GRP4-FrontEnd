@@ -5,8 +5,11 @@ import { useState } from 'react'
 import './signup.css'
 function Signup() {
   const  nav = useNavigate()
-  const [firstname, setFirstName] = useState(null)
-  const [password, setPassword] = useState(null)
+  const [firstname, setFirstName] = useState("")
+  const [lastname, setLastName] = useState("")
+  const  [email, setEmail] = useState("")
+  const [username, setUserName] = useState("")
+  const [password, setPassword] = useState("")
   const [authenticate, setAuthenticate] = useState(localStorage.getItem(
     localStorage.getItem("authenticate" || false)
   ))
@@ -19,6 +22,13 @@ function Signup() {
     
     else {
     event.preventDefault()
+    let objs = {firstname: firstname, lastname: lastname, email:email, username: username, password: password}
+    fetch("http://localhost:8000/users", {
+      method: "POST",
+      headers: {"Content-Type": "application/json"},
+      body: JSON.stringify(objs)
+    })
+    .then(res => res.json())
       localStorage.getItem ("authenticate", true)
       alert("Account created successfully.Proceed to Login")
       nav("/")
@@ -36,13 +46,13 @@ function Signup() {
         <form onSubmit={handleSubmit} className='form'>
           <div className="container">
             <label>First Name : </label>
-            <input  type="text" placeholder="Enter Firstname" name="username" />
+            <input  type="text" placeholder="Enter Firstname" name="first_name" value={firstname} onChange={(e) =>setFirstName(e.target.value)}  />
             <label>Last Name : </label>
-            <input  type="text" placeholder="Enter Lastname" name="username" />
+            <input  type="text" placeholder="Enter Lastname" name="last_name" value={lastname} onChange={(e) =>setLastName(e.target.value)} />
             <label>Username : </label>
-            <input type="text" placeholder="Enter Username" name="username" value={firstname} onChange={(e) =>setFirstName(e.target.value)} />
+            <input type="text" placeholder="Enter Username" name="email"  onChange={(e) => setEmail(e.target.value)} value={email} />
             <label>Email : </label>
-            <input type="text" placeholder="Enter Your Email" name="username" />
+            <input type="text" placeholder="Enter Your Email" name="user_name" value={username} onChange={(e) =>setUserName(e.target.value)} />
             <label>Password : </label>
             <input type="password" placeholder="Enter Password" name="password" value={password} onChange={(e) => setPassword(e.target.value)}/>
             <button type="submit">Sign Up</button>
