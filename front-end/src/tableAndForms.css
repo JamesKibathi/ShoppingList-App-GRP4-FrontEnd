@@ -3,25 +3,31 @@ body {
     background-color: rgba(75, 119, 190); 
 }
 
+/* Resolve conflict */
 .divContainer{
     background-color: #ffffff;
-<<<<<<< HEAD
-=======
+
     display: flex;
->>>>>>> main
+
+    display: flex;
+
     width: 90vw;
     position: relative;
     left: 60px;
     top: 80px;
-<<<<<<< HEAD
+
     display: flex;
     word-break: break-all;
     border-style: solid;
     
-=======
+
     word-break:break-all;
     border-style: solid;
->>>>>>> main
+
+
+    word-break:break-all;
+    border-style: solid;
+
 }
 
 /* .divContainer2 {
@@ -44,10 +50,6 @@ body {
     position: relative;
     right: 200px;
     overflow-wrap: anywhere;
-<<<<<<< HEAD
-   
-=======
->>>>>>> main
    
 }
 
@@ -177,9 +179,12 @@ body {
   vertical-align: middle;
   position: relative;
 <<<<<<< HEAD
+<<<<<<< HEAD
  
   
 =======
+=======
+>>>>>>> main
   bottom: 6px;
 >>>>>>> main
   
