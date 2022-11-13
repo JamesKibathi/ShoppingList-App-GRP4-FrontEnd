@@ -5,20 +5,31 @@ body {
 
 .divContainer{
     background-color: #ffffff;
+<<<<<<< HEAD
+=======
+    display: flex;
+>>>>>>> main
     width: 90vw;
     position: relative;
     left: 60px;
     top: 80px;
+<<<<<<< HEAD
     display: flex;
     word-break: break-all;
     border-style: solid;
     
+=======
+    word-break:break-all;
+    border-style: solid;
+>>>>>>> main
 }
 
 /* .divContainer2 {
     position: relative;
     left: 30px;
     background-color: grey;
+    box-shadow: ;
+    border-radius:20px;
 } */
 
 
@@ -33,7 +44,10 @@ body {
     position: relative;
     right: 200px;
     overflow-wrap: anywhere;
+<<<<<<< HEAD
    
+=======
+>>>>>>> main
    
 }
 
@@ -162,8 +176,12 @@ body {
   -webkit-user-select: none;
   vertical-align: middle;
   position: relative;
+<<<<<<< HEAD
  
   
+=======
+  bottom: 6px;
+>>>>>>> main
   
 }
 
@@ -231,8 +249,6 @@ body {
   .dropdown:hover .dropdown-content {
     display: block;
   }
-
-
 
 
 
