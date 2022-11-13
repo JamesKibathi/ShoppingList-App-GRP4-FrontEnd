@@ -2,11 +2,28 @@ import React from 'react'
 import { useNavigate } from 'react-router-dom'
 import { Link } from 'react-router-dom'
 import './login.css'
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import Signup from './Signup'
 function Login() {
+
+
+
     console.log("login")
     const navigate = useNavigate()
+    const [shoppers, setShoppers] = useState("")
+    useEffect (() => {
+      fetch ("http://localhost:8000/users")
+      .then(res => res.json())
+      .then(res => setShoppers(res))
+    }, [])
+
+    console.log(shoppers)
+      let x = Object.entries(shoppers)
+      console.log(x)
+     
+
+
+
     const [username, setUserName] = useState(null)
     const [password, setPassword] = useState(null)
     const [authenticate, setAuthenticate] = useState(localStorage.getItem(
@@ -15,29 +32,29 @@ function Login() {
     const users = [{ user: "Group4", password: "moringa" }]
 
     function handleSubmit(e) {
-        if(username == null || password == null) {
-            alert ("Fields Are Required")
-            return
-        }
+        // if(username == null || password == null) {
+        //     alert ("Fields Are Required")
+        //     return
+        // }
         e.preventDefault()
-        const people = users.find(item => item.user === username)
-        
-        
-        if (people && people.password === password) {
+        const people =  shoppers.map((item) => item.first_name)
+        console.log(people)
+        let auth = people.find((item)=> item == username)
+        if (auth  === username) {
             localStorage.setItem("authenticate", true)
             navigate("/app")
         }
         else{
-            alert("Wrong credentials, Please check username or password")
+            alert("Wrong credentials, Please check username")
         }
-    
+        
     }
 
     return (
 
         <>
         <div className="login-body">
-          <center> <h1> Welcome To Shopping App </h1> </center>
+          <center> <h1> Welcome To Mara Moja Shopping App </h1> </center>
           <form onSubmit={handleSubmit} className='form'>
             <div className="container">
               <label>Username : </label>

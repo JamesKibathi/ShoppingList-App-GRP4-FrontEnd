@@ -19,9 +19,9 @@ function Forms({firstState, setItems}) {
   function handleSubmit(e) {
     e.preventDefault()
     const allInputs={name:name,description:description,quantity:quantity,price:price}
-    // e.target.reset()
     
-    fetch("http://localhost:9292/items",{
+    
+    fetch("http://localhost:8000/items",{
       method: "POST",
       headers: {"Content-Type": "application/json"},
       body: JSON.stringify(allInputs)
@@ -48,16 +48,7 @@ function Forms({firstState, setItems}) {
 
   return (
     <form id='form' onSubmit={handleSubmit}>
-      <div className="dropdown">
-        <button className="dropbtn" >Types of Lists</button>
-
-
-        <div class="dropdown-content">
-          {/* This is a form */}
-          <button >Weekday Shopping List</button>
-          <button >Weekend Shopping List</button>
-        </div>
-      </div>
+      
       <div className="label">
 
         <input type="text" className="in-data" placeholder='Item Name' onChange={(e) =>{setItemName(name=>e.target.value)}} value={name} name="name" />
@@ -68,7 +59,7 @@ function Forms({firstState, setItems}) {
       </div>
       <div className="label">
 
-        <input type="number" className="inputs-data" placeholder='Price' onChange={(e) =>{setPrice(price=>e.target.value)}}  value={price} name="price"/>
+        <input type="number" className="input" placeholder='Price' onChange={(e) =>{setPrice(price=>e.target.value)}}  value={price} name="price"/>
       </div>
       <div className="label">
 
