@@ -35,7 +35,7 @@ function Login() {
             return
         }
         e.preventDefault()
-        const people =  shoppers.map((item) => item.first_name)
+        const people =  shoppers.map((item) => item.user_name)
         console.log(people)
         let auth = people.find((item)=> item == username)
         if (auth  === username) {
@@ -43,7 +43,7 @@ function Login() {
             navigate("/app")
         }
         else{
-            alert("Wrong credentials, Please check username")
+            alert("Wrong credentials, Please check username or password")
         }
         
     }
