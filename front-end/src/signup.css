@@ -132,6 +132,7 @@
     justify-content: center;
     align-items: center;
     flex-direction: column;
+    margin-top: 100px;
 }
 
 button {   
@@ -158,7 +159,7 @@ button {
  .container{
     width:50vh;
  }
-input[type=text], input[type=password] {   
+input[type=text], input[type=password],input[type=email] {   
      width: 100%;   
      margin: 8px 0;  
      padding: 12px 20px;   

@@ -1,103 +1,90 @@
 import React from 'react'
 import { useNavigate } from 'react-router-dom'
 import { Link } from 'react-router-dom'
-import { useState } from 'react'
+import { useState,useEffect } from 'react'
 import './signup.css'
+
 function Signup() {
   const  nav = useNavigate()
-  const [firstname, setFirstName] = useState("")
-  const [lastname, setLastName] = useState("")
-  const  [email, setEmail] = useState("")
-  const [username, setUserName] = useState("")
+  const [first_name, setFirstName] = useState("")
+  const [last_name, setLastName] = useState("")
+  const [email, setEmail] = useState("")
+  const [user_name, setUserName] = useState("")
   const [password, setPassword] = useState("")
-  const [authenticate, setAuthenticate] = useState(localStorage.getItem(
-    localStorage.getItem("authenticate" || false)
-  ))
+
+  //Fetch Users
+
+  const [users, setUsers] = useState()
+ 
+    useEffect (() => {
+      fetch("http://localhost:8000/users")
+      .then(res => res.json())
+      .then(allUsers => {
+        console.log (allUsers)
+        setUsers(allUsers)})
+    }, [])
+// End of fetch
 
   function handleSubmit(event) {
-    if (firstname == null || password == null) {
+    event.preventDefault()
+    let objs = {first_name:first_name,last_name:last_name,email:email,user_name:user_name,password:password}
+
+    if (first_name == null || password == null) {
       alert("You missed something")
       return
     }
     
     else {
-    event.preventDefault()
-    let objs = {firstname: firstname, lastname: lastname, email:email, username: username, password: password}
+      
     fetch("http://localhost:8000/users", {
       method: "POST",
       headers: {"Content-Type": "application/json"},
       body: JSON.stringify(objs)
     })
-    .then(res => res.json())
-      localStorage.getItem ("authenticate", true)
-      alert("Account created successfully.Proceed to Login")
-      nav("/")
+    .then((res) => res.json())
+    .then(data=>{
+      const newData=[...users,data]
+      console.log(objs)
+            setUsers(updated=>newData)
+            setFirstName("")
+            setLastName("")
+            setEmail("")
+            setUserName("")
+            setPassword("")
+       alert("Account created successfully.Proceed to Login")
+       nav("/")
+
+    })
+
+    .catch(error=>{
+      console.log(error)
+    })
+
     }
-    }
-     // Testing merge conflict 
-   
   
-
+  }
+   
   return (
-
-    <>
+   
       <div className="login-body">
-        <center> <h1> Welcome To Shopping App </h1> </center>
+        <center> <h1> Create Mara Moja Account </h1> </center>
         <form onSubmit={handleSubmit} className='form'>
           <div className="container">
             <label>First Name : </label>
-            <input  type="text" placeholder="Enter Firstname" name="first_name" value={firstname} onChange={(e) =>setFirstName(e.target.value)}  />
+            <input  type="text" placeholder="Enter Firstname"  onChange={(e) =>{setFirstName(fname=>e.target.value)}} value={first_name} name="first_name"    />
             <label>Last Name : </label>
-            <input  type="text" placeholder="Enter Lastname" name="last_name" value={lastname} onChange={(e) =>setLastName(e.target.value)} />
+            <input  type="text" placeholder="Enter Lastname"  onChange={(e) =>{setLastName(lname=>e.target.value)}} value={last_name} name="last_name" />
             <label>Username : </label>
-            <input type="text" placeholder="Enter Username" name="email"  onChange={(e) => setEmail(e.target.value)} value={email} />
+            <input type="text" placeholder="Enter Username" required onChange={(e) => {setUserName(username=>e.target.value)}} value={user_name} name="user_name" />
             <label>Email : </label>
-            <input type="text" placeholder="Enter Your Email" name="user_name" value={username} onChange={(e) =>setUserName(e.target.value)} />
+            <input type="email" placeholder="Enter Your Email" required onChange={(e) =>{setEmail(email=>e.target.value)}} value={email} name="email" />
             <label>Password : </label>
-            <input type="password" placeholder="Enter Password" name="password" value={password} onChange={(e) => setPassword(e.target.value)}/>
-            <button type="submit">Sign Up</button>
+            <input type="password" placeholder="Enter Password" required onChange={(e) => {setPassword(password=>e.target.value)}} value={password} name="password"  />
+            <button type="submit">Sign Me Up</button>
           </div>
         </form>
       </div>
-    </>
-    // <div className='mainDiv'>
-    // <form class="form" onSubmit={handleSubmit}>
-    //   <div className="title">WELCOME</div>
-    //   <div className="subtitle">Let's create your account!</div>
-    //   {/* t.string "first_name"
-    // t.string "last_name"
-    // t.string "email"
-    // t.string "user_name"
-    // t.string "password" */}
-
-    //   <div className="input-container ic1">
-    //     <input id="firstname" className="input" type="text" placeholder=" " value={firstname} onChange={(e) =>setFirstName(e.target.value)} />
-    //     <div className="cut"></div>
-    //     <label for="firstname" class="placeholder">First name</label>
-    //   </div>
-    //   <div className="input-container ic2">
-    //     <input id="lastname" className="input" type="text" placeholder=" "  />
-    //     <div className="cut"></div>
-    //     <label for="lastname" className="placeholder">Last Name</label>
-    //   </div>
-    //   <div className="input-container ic2">
-    //     <input id="lastname" className="input" type="email" placeholder=" " />
-    //     <div className="cut"></div>
-    //     <label for="lastname" className="placeholder">Email</label>
-    //   </div>
-    //   <div className="input-container ic2">
-    //     <input id="lastname" className="input" type="text" placeholder=" "/>
-    //     <div className="cut"></div>
-    //     <label for="lastname" className="placeholder">Username</label>
-    //   </div>
-    //   <div className="input-container ic2">
-    //     <input id="lastname" className="input" type="text" placeholder=" " value={password} onChange={(e) => setPassword(e.target.value)} />
-    //     <div className="cut"></div>
-    //     <label for="lastname" className="placeholder">Password</label>
-    //   </div>
-    //   <input type="submit" className="submit" Sign-Up />
-    // </form>
-    // </div>
+    
   )
 }
 
