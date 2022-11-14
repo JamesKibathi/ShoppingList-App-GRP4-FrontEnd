@@ -1,70 +1,109 @@
-# Getting Started with Create React App
+# Mara Moja Shopping List App 
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This is the Frontend of a group project created in November 2022 at the end of phase 3 of our Software Engineering Bootcamp at Moringa School.
 
-## Available Scripts
+### Contributors
 
-In the project directory, you can run:
+* James Njenga
+* Muriithi Kibata
+* Pauline Muthoni
+* Ruth Mwangeka
+* Isaac Sindiga
 
-### `npm start`
+## Description
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+Mara Moja is a shopping list app that allows users to sign up for an account and then create a shopping list with item names, prices, and descriptions. After purchasing an item, the user may be able to check it off their list.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+## Technologies Used
+* HTML
+* CSS
+* ReactJS
+* Ruby
+* Sinatra API Server
 
-### `npm test`
+## Setup / Installation Requirements
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+* Backend server :https://github.com/JamesKibathi/grp4-backend-new
+* Web Browser
+* Internet connection
 
-### `npm run build`
+## MVPs
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+A landing page with:
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+* Login and SignUp Form
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+* Form To Add Shopping Items
 
-### `npm run eject`
+* Shopping List Display Section
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+### Installation steps
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+* The API is built on localhost.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+* To run locally, fork and clone the repository to your local machine, then run `npm install` to add dependencies.
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+* Fork and clone the backend API (https://github.com/JamesKibathi/grp4-backend-new) and follow the installation steps as outlined on the README of the repo.
 
-## Learn More
+* Run and start the server.
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+* Upon successfully starting the server, Run `npm start` and the app will launch on the browser.
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+### How it works
 
-### Code Splitting
+After a successful launch, the user is redirected to a login page
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+<img src="src/Mara Moja Login.png" width="300"/>
 
-### Analyzing the Bundle Size
+If you don't have an account already, you will be allowed to create one
+by clicking on the link: `Don't have an account? Create Account`
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+<img src="src/Mara Moja Signup.png" width="300"/>
 
-### Making a Progressive Web App
+Upon a successful Login, You will be redirected to your account where you will be
+able to generate a shopping list.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+<img src="src/Mara-Moja-Home.png" width="300"/>
 
-### Advanced Configuration
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+#### Admin Logins
+If you don't want to create an account, you can login with the following credentials:
 
-### Deployment
+* Username : Jay
+* Password: N123
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+## Known Bugs
 
-### `npm run build` fails to minify
+User authentication is not properly handled. I'll come back to this when we get to rails.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+## Support and contact details
+
+Email - njenga.consulting@gmail.com
+
+Let's connect on Linkein: https://www.linkedin.com/in/james-njenga-a2521b1b6/
+
+
+## MIT License
+
+Copyright (c) 2022 **James Njenga**
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
+
+
+
